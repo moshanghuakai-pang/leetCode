@@ -1,0 +1,40 @@
+/*字符串的操作，使用的是StringBuffer的类型，一些函数的调用，还有字符串的长度*/
+public class Solution {
+    public String replaceSpace(StringBuffer str) {
+    	if(str == null) {
+            return null;
+        }
+        else{
+            //StringBuffer类使用length()来求数组的大小
+            //The operation of StringBuffer
+            int lenOriginal = str.length();
+            if(lenOriginal <= 0) {
+                return str.toString();
+            }
+            else {
+                int numBlank = 0;
+                for(int i = 0; i < lenOriginal; i++ ) {
+                    if(str.charAt(i) == ' ') {
+                        numBlank ++;
+                    }
+                }
+                int lenNew = lenOriginal + numBlank * 2;
+                str.setLength(lenNew);
+                lenNew--;
+                lenOriginal--;
+                while(lenOriginal >= 0 && lenNew > lenOriginal) {
+                    if(str.charAt(lenOriginal) == ' ') {
+                        str.setCharAt(lenNew --,'0');
+                        str.setCharAt(lenNew --,'2');
+                        str.setCharAt(lenNew --,'%');
+                    }
+                    else {
+                        str.setCharAt(lenNew --,str.charAt(lenOriginal));
+                    }
+                    --lenOriginal ;
+                }
+            }
+        }
+        return str.toString();
+    }
+}
