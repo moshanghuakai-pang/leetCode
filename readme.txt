@@ -1,6 +1,1 @@
-Git is a distributed version control system
-Git is a free software.
-
-
-pang.
-Git is wonderful.
+This is my code of leetCode to help me to learn algorithm.
